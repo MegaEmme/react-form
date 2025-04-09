@@ -1,4 +1,6 @@
 import { useState } from "react";
+// import articles from "../data/articles";
+// console.log(articles);
 
 function Main() {
 
@@ -30,8 +32,8 @@ function Main() {
                     <input type="text"
                         onChange={e => { setNewArticle(e.target.value) }}
                     />
-                    <hr />
-                    <button className="btn btn-primary">Invia</button>
+                    <button className="btn btn-primary mx-4"><i className="fa-solid fa-plus"></i></button>
+                    <button className="btn btn-danger"><i className="fa-regular fa-trash-can"></i></button>
                 </main>
             </form>
         </>
