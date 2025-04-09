@@ -1,12 +1,13 @@
 import articles from "../data/articles";
 
 function Main() {
-    for (let index = 0; index < articles.length; index++) {
-        console.log(articles[index].title)
-    }
     return (
         <>
-            <div>ciao</div>
+            <ul>
+                {articles.map(element =>
+                    <li key={element.id}>{element.title}</li>
+                )}
+            </ul>
         </>
     )
 }
