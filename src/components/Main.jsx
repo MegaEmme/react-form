@@ -17,7 +17,6 @@ function Main() {
         event.preventDefault();
         const updatedArticles = [...article, newArticle];
         setArticle(updatedArticles);
-        console.log('Aggiunto: ' + newArticle);
     }
 
     const removeArticle = i => {
@@ -27,6 +26,16 @@ function Main() {
         setArticle(deletedArticles);
     }
 
+    const modifyArticle = i => {
+        const modifiedArticle = prompt('inserisci modifica');
+        const newList = [];
+        article.forEach((article, index) => {
+            index === i ? newList.push(modifiedArticle) : newList.push(article)
+
+            setArticle(newList);
+        })
+    }
+
 
     return (
         <>
@@ -34,9 +43,12 @@ function Main() {
                 <main className="container">
                     <ul>
                         {article.map((element, index) =>
-                            <li className="p-3" key={index}>{element}
+                            <li className="fs-4 p-3" key={index}>{element}
                                 <hr />
-                                <button className="btn btn-danger" onClick={() => removeArticle(index)}><i className="fa-regular fa-trash-can"></i></button></li>
+                                <button className="btn btn-danger me-2" onClick={() => removeArticle(index)}><i className="fa-regular fa-trash-can"></i></button>
+                                <button className="btn btn-success" onClick={() => modifyArticle(index)}><i className="fa-solid fa-pen"></i></button>
+
+                            </li>
                         )}
                     </ul>
                     <input type="text"
