@@ -17,6 +17,7 @@ function Main() {
         event.preventDefault();
         const updatedArticles = [...article, newArticle];
         setArticle(updatedArticles);
+        setNewArticle('');
     }
 
     const removeArticle = i => {
@@ -28,6 +29,8 @@ function Main() {
 
     const modifyArticle = i => {
         const modifiedArticle = prompt('inserisci modifica');
+        // const modifiedArticle = <input type="text"
+        //     placeholder="inserisci modifica" />
         const newList = [];
         article.forEach((article, index) => {
             index === i ? newList.push(modifiedArticle) : newList.push(article)
@@ -53,8 +56,9 @@ function Main() {
                     <input type="text"
                         onChange={e => { setNewArticle(e.target.value) }}
                         placeholder="Inserisci nuovo gioco"
+                        value={newArticle}
                     />
-                    <button className="btn btn-primary mx-4"><i className="fa-solid fa-plus"></i></button>
+                    <button className="btn btn-primary mx-4 mb-2"><i className="fa-solid fa-plus"></i></button>
 
                 </main>
             </form>
