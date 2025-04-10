@@ -31,9 +31,8 @@ function Main() {
         const newList = [];
         article.forEach((article, index) => {
             index === i ? newList.push(modifiedArticle) : newList.push(article)
-
-            setArticle(newList);
         })
+        setArticle(newList);
     }
 
 
